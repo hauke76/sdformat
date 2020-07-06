@@ -232,6 +232,11 @@ std::string Param::GetAsString() const
 {
   std::stringstream ss;
 
+  if (this->dataPtr->typeName == "double") {
+    ss << std::setprecision(std::numeric_limits<double>::max_digits10);
+  } else if (this->dataPtr->typeName == "float") {
+    ss << std::setprecision(std::numeric_limits<float>::max_digits10);
+  }
   ss << this->dataPtr->value;
   return ss.str();
 }
@@ -241,6 +246,11 @@ std::string Param::GetDefaultAsString() const
 {
   std::stringstream ss;
 
+  if (this->dataPtr->typeName == "double") {
+    ss << std::setprecision(std::numeric_limits<double>::max_digits10);
+  } else if (this->dataPtr->typeName == "float") {
+    ss << std::setprecision(std::numeric_limits<float>::max_digits10);
+  }
   ss << this->dataPtr->defaultValue;
   return ss.str();
 }
